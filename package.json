@@ -1,0 +1,20 @@
+{
+  "name": "omed",
+  "version": "1.0.0",
+  "description": "a cli tool for create demo project",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "dev": "tsx --watch"
+  },
+  "author": "sunzy",
+  "license": "MIT",
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20.14.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  }
+}
