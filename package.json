@@ -2,19 +2,25 @@
   "name": "omed",
   "version": "1.0.0",
   "description": "a cli tool for create demo project",
-  "main": "dist/index.js",
+  "main": "./src/index.ts",
+  "bin": "bin/index.js",
   "scripts": {
-    "build": "npx tsc",
-    "dev": "tsx --watch"
+    "build": "tsc",
+    "link": "npm link",
+    "dev": "tsc --watch"
   },
   "author": "sunzy",
   "license": "MIT",
   "devDependencies": {
-    "@tsconfig/node20": "^20.1.4",
+    "@types/inquirer": "^9.0.7",
     "@types/node": "^20.14.2",
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "commander": "^12.1.0"
+    "@inquirer/prompts": "^5.0.5",
+    "@inquirer/select": "^2.3.5",
+    "commander": "^12.1.0",
+    "ora": "^8.0.1",
+    "tslib": "^2.6.3"
   }
 }
