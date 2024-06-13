@@ -11,8 +11,8 @@
   //   }
   // },
   "compilerOptions": {
-    "target": "es5", // 编译后的代码类型
-    "module": "CommonJS", // 模块类型
+    "target": "es6", // 编译后的代码类型
+    "module": "esnext", // 模块类型
     "removeComments": true, // 删除注释
     "moduleResolution": "node", // 模块解析器
     "useDefineForClassFields": true, // 类的字段使用 define 来定义

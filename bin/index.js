@@ -1,41 +1,34 @@
 #! /usr/bin/env node
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var package_json_1 = require("../package.json");
-var commander_1 = require("commander");
-var prompts_1 = require("@inquirer/prompts");
-var select_1 = require("@inquirer/select");
-var ora_1 = require("ora");
-console.log('oraPromise', ora_1.oraPromise);
-var program = new commander_1.Command();
-init();
-function init() {
-    return tslib_1.__awaiter(this, void 0, void 0, function () {
-        var projectName, selectedType;
-        return tslib_1.__generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    program.version(package_json_1.version, '-v, --version')
-                        .parse();
-                    return [4, (0, prompts_1.input)({ message: 'name of the demo?', default: 'demo' })];
-                case 1:
-                    projectName = _a.sent();
-                    return [4, (0, select_1.default)({
-                            message: "type of the demo?",
-                            choices: [
-                                {
-                                    value: 'vanilla',
-                                }
-                            ]
-                        })];
-                case 2:
-                    selectedType = _a.sent();
-                    console.log('projectName', projectName);
-                    console.log('selectedType', selectedType);
-                    return [2];
-            }
+import { __awaiter } from "tslib";
+import { Command } from 'commander';
+import select from "@inquirer/select";
+import ora from 'ora';
+const VERSION = '0.0.1';
+const program = new Command();
+program.version(VERSION, '-v, --version');
+program.argument('<demo-name>');
+program.option('-f, --force', 'overwrite target directory if it exist');
+program.action((param, options) => __awaiter(void 0, void 0, void 0, function* () {
+    yield init(param, options);
+}));
+program.parse();
+function init(demoName, options) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const selectedType = yield select({
+            message: "type of the demo?",
+            choices: [
+                {
+                    value: 'vanilla',
+                }
+            ]
         });
+        const spinner = ora('Loading unicorns').start();
+        setTimeout(() => {
+            spinner.color = 'yellow';
+            spinner.text = 'Loading rainbows';
+            spinner.stop();
+        }, 1000);
+        console.log('selectedType', selectedType);
     });
 }
 //# sourceMappingURL=index.js.map

@@ -4,6 +4,7 @@
   "description": "a cli tool for create demo project",
   "main": "./src/index.ts",
   "bin": "bin/index.js",
+  "type": "module",
   "scripts": {
     "build": "tsc",
     "link": "npm link",
