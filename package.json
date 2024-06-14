@@ -1,8 +1,11 @@
 {
-  "name": "omed",
-  "version": "0.0.1",
+  "name": "@sunzhongyi/omed",
+  "version": "1.0.1",
   "description": "a cli tool for create demo project",
   "main": "./src/index.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "bin": {
     "dm": "bin/index.js"
   },
@@ -12,7 +15,7 @@
     "link": "npm link",
     "dev": "tsc --watch"
   },
-  "author": "sunzy",
+  "author": "sunzhongyi",
   "license": "MIT",
   "devDependencies": {
     "@types/inquirer": "^9.0.7",

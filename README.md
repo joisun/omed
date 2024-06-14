@@ -1,7 +1,7 @@
 Usage
 
 ```
-pnpm install -g omed
+npm install -g omed
 ```
 
 ```
