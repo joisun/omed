@@ -6,7 +6,7 @@ import select from "@inquirer/select";
 import { TemplateDownloader } from "./utils/TemplateDownloader.js";
 import { resolve } from 'node:path';
 import { existsSync } from 'node:fs';
-const VERSION = '0.0.1';
+const VERSION = '1.0.2';
 const program = new Command();
 program.version(VERSION, '-v, --version');
 program.argument('<demo-name>');

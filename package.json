@@ -1,6 +1,6 @@
 {
   "name": "@sunzhongyi/omed",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a cli tool for create demo project",
   "main": "./src/index.ts",
   "publishConfig": {

@@ -13,7 +13,7 @@ import { resolve } from 'node:path';
 import { existsSync } from 'node:fs';
 // with warning
 // import pkg from "../package.json" assert { type: "json" };
-const VERSION = '0.0.1'
+const VERSION = '1.0.2'
 const program = new Command();
 
 type Options = {
