@@ -1,8 +1,11 @@
 #! /usr/bin/env node
 import { __awaiter } from "tslib";
 import { Command } from 'commander';
+import confirm from "@inquirer/confirm";
 import select from "@inquirer/select";
-import ora from 'ora';
+import { TemplateDownloader } from "./utils/TemplateDownloader.js";
+import { resolve } from 'node:path';
+import { existsSync } from 'node:fs';
 const VERSION = '0.0.1';
 const program = new Command();
 program.version(VERSION, '-v, --version');
@@ -22,13 +25,15 @@ function init(demoName, options) {
                 }
             ]
         });
-        const spinner = ora('Loading unicorns').start();
-        setTimeout(() => {
-            spinner.color = 'yellow';
-            spinner.text = 'Loading rainbows';
-            spinner.stop();
-        }, 1000);
-        console.log('selectedType', selectedType);
+        const dest = resolve(process.cwd(), demoName);
+        const exist = yield existsSync(dest);
+        if (exist) {
+            const answer = yield confirm({ message: 'Folder already exist. Continue?' });
+            if (!answer)
+                return;
+        }
+        const downloader = new TemplateDownloader(selectedType);
+        const success = yield downloader.download(dest, demoName);
     });
 }
 //# sourceMappingURL=index.js.map

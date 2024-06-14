@@ -3,13 +3,18 @@
 
 import { Command } from 'commander';
 import { input } from "@inquirer/prompts"
+import confirm from "@inquirer/confirm"
+
+
 import select from "@inquirer/select"
-import ora from 'ora';
+import { TemplateDownloader } from "./utils/TemplateDownloader.js"
+import { SelectedTemplateType } from './types/index.js';
+import { resolve } from 'node:path';
+import { existsSync } from 'node:fs';
 // with warning
 // import pkg from "../package.json" assert { type: "json" };
 const VERSION = '0.0.1'
 const program = new Command();
-
 
 type Options = {
     force: boolean
@@ -23,28 +28,31 @@ program.action(async (param, options) => {
 program.parse();
 
 
-// const projectName = await input({ message: 'name of the demo?', default: 'demo' })
 async function init(demoName: string, options: Options) {
-    const selectedType = await select({
+    const selectedType: SelectedTemplateType = await select({
         message: "type of the demo?",
         choices: [
             {
                 value: 'vanilla',
             }
         ]
-    })
+    }) as SelectedTemplateType
+
+    const dest = resolve(process.cwd(), demoName)
+
+    const exist = await existsSync(dest)
+    if (exist) {
+        const answer = await confirm({ message: 'Folder already exist. Continue?' });
+        if (!answer) return
+    }
+    const downloader = new TemplateDownloader(selectedType)
+    const success = await downloader.download(dest, demoName)
 
 
-    const spinner = ora('Loading unicorns').start();
 
-    setTimeout(() => {
-        spinner.color = 'yellow';
-        spinner.text = 'Loading rainbows';
-        spinner.stop()
-    }, 1000);
-
-    console.log('selectedType', selectedType)
 }
+
+
 
 
 
