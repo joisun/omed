@@ -6,7 +6,8 @@ import util from "node:util"
 import ora, { Ora } from 'ora';
 import chalk from "chalk"
 const RequestUrls = {
-    [SelectedTemplateType.Vanilla]: 'jaycethanks/omed-vanilla-vite-template'
+    [SelectedTemplateType.Vanilla]: 'jaycethanks/omed-vanilla-vite-template',
+    [SelectedTemplateType.React]: 'jaycethanks/omed-react-vite-template'
 }
 
 export class TemplateDownloader {

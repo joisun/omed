@@ -1,3 +1,4 @@
 export enum SelectedTemplateType {
-    'Vanilla' = 'vanilla'
+    'Vanilla' = 'vanilla',
+    'React' = 'react',
 }

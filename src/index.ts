@@ -34,6 +34,9 @@ async function init(demoName: string, options: Options) {
         choices: [
             {
                 value: 'vanilla',
+            },
+            {
+                value: 'react',
             }
         ]
     }) as SelectedTemplateType
