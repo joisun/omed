@@ -13,7 +13,8 @@
   "scripts": {
     "build": "tsc",
     "link": "npm link",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "publish": "npm version patch; npm publish"
   },
   "author": "sunzhongyi",
   "license": "MIT",
