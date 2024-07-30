@@ -1,7 +1,7 @@
 Usage
 
 ```
-npm install -g omed
+npm install -g @sunzhongyi/omed
 ```
 
 ```
