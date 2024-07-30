@@ -11,9 +11,7 @@ import { TemplateDownloader } from "./utils/TemplateDownloader.js"
 import { SelectedTemplateType } from './types/index.js';
 import { resolve } from 'node:path';
 import { existsSync } from 'node:fs';
-// with warning
-// import pkg from "../package.json" assert { type: "json" };
-const VERSION = '1.0.2'
+import VERSION from './utils/getVersion.js';
 const program = new Command();
 
 type Options = {
